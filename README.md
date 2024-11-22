@@ -2,6 +2,10 @@
 
 checking release-drafter capabilities. This is the leading dev branch.
 
+```bash
+echo "your WIP area to simulate changes!"
+```
+
 ### Demonstrates
 
 - manual publishing via job (just as the tag trigger would do, but consuming the tag to publish from user input)
