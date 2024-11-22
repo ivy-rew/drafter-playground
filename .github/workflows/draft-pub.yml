@@ -1,6 +1,7 @@
 name: Release Publisher
 
 on:
+  workflow_dispatch:
   workflow_call:
     inputs:
       publish_release:
