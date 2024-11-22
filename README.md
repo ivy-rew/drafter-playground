@@ -1,6 +1,7 @@
 # Playground
 
-checking release-drafter capabilities: this branch simulates an LTS release train for version 1.0.
+checking release-drafter capabilities.
+this branch simulates an LTS release train for version 1.0.
 
 ### Demonstrates
 
