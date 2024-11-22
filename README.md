@@ -5,6 +5,7 @@ this branch simulates an LTS release train for version 1.0.
 
 ```bash
 echo "random changes welcome"
+echo "quo vadis?"
 ```
 
 ### Demonstrates
