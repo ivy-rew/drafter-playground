@@ -2,5 +2,8 @@
 
 checking release-drafter capabilities
 
-- first tag exists
-- done: manual publishing via job (just as the tag trigger would do, but consuming the tag to publish from user input.)
+### Demonstrates
+
+- manual publishing via job (just as the tag trigger would do, but consuming the tag to publish from user input)
+- automated publishing via tag (regardless of the branch where this tag first came to live)
+
