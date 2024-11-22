@@ -28,6 +28,6 @@ jobs:
           name: ${{ env.RELEASE_VERSION }} 😍️
           tag: ${{ env.RELEASE_VERSION }}
           version: ${{ env.RELEASE_VERSION }}
-          publish: ${{ github.event.inputs.publish == 'true' }}
+          publish: ${{ github.event.inputs.publish == true }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
