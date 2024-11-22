@@ -62,3 +62,5 @@ A live example can be found in https://github.com/ivy-rew/drafter-playground/blo
 
 Commitish isn't working well until a first release on the respective train exists.
 Up 2 then history seems to contain too many items...
+
+... insights hopefully available with v4!
