@@ -37,7 +37,7 @@ jobs:
         # (Optional) specify config name to use, relative to .github/. Default: release-drafter.yml
         with:
           config-name: draft-template.yml
-          commitish: ${{ github.ref }}
+          commitish: ${{ github.base_ref }}
         #   disable-autolabeler: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
