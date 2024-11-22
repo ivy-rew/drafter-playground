@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   workflow_call:
     inputs:
-      publish_release:
+      publish:
         required: false
         default: true
         type: boolean
@@ -28,6 +28,6 @@ jobs:
           name: ${{ env.RELEASE_VERSION }} 😍️
           tag: ${{ env.RELEASE_VERSION }}
           version: ${{ env.RELEASE_VERSION }}
-          publish: ${{ github.event.inputs.publish_release }}
+          publish: ${{ github.event.inputs.publish == 'true' }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
