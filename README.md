@@ -1,6 +1,6 @@
 # Playground
 
-checking release-drafter capabilities
+checking release-drafter capabilities. This is the leading dev branch.
 
 ### Demonstrates
 
