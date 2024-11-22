@@ -18,4 +18,4 @@ jobs:
     # Uncomment and set to 'false' if you want to prevent the release from being published immediately.
     with:
       publish: false
-      version: ${GITHUB_REF#refs/*/}
+      version: ${GITHUB_REF}
