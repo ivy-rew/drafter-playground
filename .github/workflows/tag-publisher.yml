@@ -12,7 +12,7 @@ permissions:
 jobs:
   build:
     uses: ./.github/workflows/draft-pub.yml
-    # The 'publish_release' input parameter is used to control whether the release should be published automatically.
+    # The 'publish' input parameter is used to control whether the release should be published automatically.
     # Uncomment and set to 'false' if you want to prevent the release from being published immediately.
     # with:
-    #   publish_release: false
+    #   publish: false
