@@ -1,13 +1,13 @@
 # Playground
 
-checking release-drafter capabilities. This is the leading dev branch.
+checking release-drafter capabilities.
 
 ### Demonstrates
 
 - manual publishing via job (just as the tag trigger would do, but consuming the tag to publish from user input)
 - automated publishing via tag (regardless of the branch where this tag first came to live)
 
-### Actions
+## Actions
 
 #### [Release Drafter](https://github.com/ivy-rew/drafter-playground/actions/workflows/release-drafter.yml) 
 
@@ -29,7 +29,7 @@ The release to publish is controlled by the trigger action (Tag Publisher).
 The release notes are rewritten on this run, so manually adjusted release drafts will be lost. However, you may apply manual changes in advance.
 
 
-### Releases
+## Releases
 
 Maintaining multiple release-drafts and their automated publishing is possible, yet not perfect.
 
@@ -56,3 +56,9 @@ according to our needs on the release we wan't to address.
 
 E.g. after creating a release/10.0 branch, we must change the `draft-pub.yml` to define `commitish: release/10`. 
 A live example can be found in https://github.com/ivy-rew/drafter-playground/blob/release/1.0/.github/workflows/draft-pub.yml#L38 .
+
+
+## Investiage
+
+Commitish isn't working well until a first release on the respective train exists.
+Up 2 then history seems to contain too many items...
