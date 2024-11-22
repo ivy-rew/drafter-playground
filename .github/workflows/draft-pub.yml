@@ -32,7 +32,7 @@ jobs:
         with:
           config-name: draft-template.yml
           disable-autolabeler: true
-          name: ${{ env.RELEASE_VERSION }} 😍️
+          name: ${{ env.RELEASE_VERSION }}
           tag: ${{ env.RELEASE_VERSION }}
           version: ${{ env.RELEASE_VERSION }}
           publish: ${{ inputs.publish }}
