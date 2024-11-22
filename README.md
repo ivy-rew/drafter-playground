@@ -4,6 +4,7 @@ checking release-drafter capabilities. This is the leading dev branch.
 
 ```bash
 echo "your WIP area to simulate changes!"
+echo "more updates for release 2... "
 ```
 
 ### Demonstrates
