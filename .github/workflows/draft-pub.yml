@@ -1,7 +1,6 @@
 name: Release Publisher
 
-on:
-  workflow_dispatch:
+on: 
   workflow_call:
     inputs:
       publish:
@@ -21,6 +20,8 @@ jobs:
     steps:
       - name: Set version env
         run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
+      - name: Play with input env
+        run: echo "PUBLISH=${{ inputs.publish}}" >> $GITHUB_ENV
       - uses: release-drafter/release-drafter@v6
         with:
           config-name: draft-template.yml
@@ -28,6 +29,6 @@ jobs:
           name: ${{ env.RELEASE_VERSION }} 😍️
           tag: ${{ env.RELEASE_VERSION }}
           version: ${{ env.RELEASE_VERSION }}
-          publish: ${{ github.event.inputs.publish == true }}
+          publish: ${{ env.PUBLISH }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
