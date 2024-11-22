@@ -13,8 +13,12 @@ permissions:
 
 jobs:
   build:
-    uses: ./.github/workflows/draft-pub.yml
-    # The 'publish' input parameter is used to control whether the release should be published automatically.
-    # Uncomment and set to 'false' if you want to prevent the release from being published immediately.
-    with:
-      publish: true
+    runs-on: ubuntu-latest
+    steps:
+    - name: Evaluate tag
+      run: echo "TAG_VERSION=${GITHUB_REF#refs/*/}"
+    - uses: ./.github/workflows/draft-pub.yml
+      # The 'publish' input parameter is used to control whether the release should be published automatically.
+      # Uncomment and set to 'false' if you want to prevent the release from being published immediately.
+      with:
+        publish: false
