@@ -3,6 +3,10 @@
 checking release-drafter capabilities.
 this branch simulates an LTS release train for version 1.0.
 
+```bash
+echo "random changes welcome"
+```
+
 ### Demonstrates
 
 - manual publishing via job (just as the tag trigger would do, but consuming the tag to publish from user input)
