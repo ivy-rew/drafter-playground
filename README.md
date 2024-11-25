@@ -65,6 +65,6 @@ Up 2 then history seems to contain too many items...
 
 ... insights hopefully available with v4!
 
-... disabled filter-by-commitish: trying to see the effects
+... disabled filter-by-commitish: trying to see the effects --> seems irrelevant at first glance ... results better without than with it.
 
 ... do we just need a first commit/PR on the new release branch before tagging a first release?
