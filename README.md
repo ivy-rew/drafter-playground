@@ -31,40 +31,29 @@ The release notes are rewritten on this run, so manually adjusted release drafts
 
 ## Releases
 
-Maintaining multiple release-drafts and their automated publishing is possible, yet not perfect.
+Maintaining multiple release-drafts and their automated publishing is possible, 
+yet is harder than expected.
 
-In the [draft-template.yml](.github/workflows/draft-template.yml) we enabled `filter-by-commitish: true`
-in order to filter out changes that happend on other release-trains.
-
-Now we need to set our target-release using the `commitish` argument.
+We need to set our target-release using the `commitish` argument.
 This is not set in the draft-template.yml itself, as the template is always read from default-branch.
 Therefore shared for all branches and not appropriate to set restrictions that apply only to one release-train.
 
 To separate commits anyway, the pipeplines calling the release-drafter action are sending the `commitish` runtime argument.
-Normal release-drafts throughout the development cycle work like a charm by passing their 
+
+We have two distinct approaches to set this argument:
+
+- Normal release-drafts throughout the development cycle work like a charm by passing their 
 target branch `commitish: ${{ github.ref }}` in the [release-drafter](.github/workflows/release-drafter.yml) pipeline.
+- The official, tag based publisher however, uses fixed commitish refs and versions to ensure we're not by accident using drafts from master as our release-branch doc.
 
-#### Limitation
+We disabled `filter-by-commitish: true` in the [draft-template.yml](.github/workflows/draft-template.yml) again, simply setting `commitish` seems to achieve already separated release-drafts per release train.
 
-The official, tag based publisher however, uses a static ref. I couldn't find a dynamic value yet, that is always correct 🤔️.
-[Actions Context](https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/accessing-contextual-information-about-workflow-runs#github-context) does not reveal our release branch, if we are running from tag-creation trigger.
+## Releasing
 
-#### Workaround
+With this approach approach official releases are either created from `release/XYZ `branches or `master`.
 
-As workaround we need to change the [draft-pub](.github/workflows/draft-pub.yml) and define the `commitish` argument 
-according to our needs on the release we wan't to address.
+### Concurrent drafts
 
-E.g. after creating a release/10.0 branch, we must change the `draft-pub.yml` to define `commitish: release/10`. 
-A live example can be found in https://github.com/ivy-rew/drafter-playground/blob/release/1.0/.github/workflows/draft-pub.yml#L38 .
+Note that the master and last release branch could be working upon the same release-draft. Therefore overwriting each other's versions on updates of the branch. 
 
-
-## Investiage
-
-Commitish isn't working well until a first release on the respective train exists.
-Up 2 then history seems to contain too many items...
-
-... insights hopefully available with v4!
-
-... disabled filter-by-commitish: trying to see the effects --> seems irrelevant at first glance ... results better without than with it.
-
-... do we just need a first commit/PR on the new release branch before tagging a first release?
+We can minimize that effect; by adding a PR to Master and label it as `major`. This will make new drafts from master using a raised major version and therefore make release-drafter aware, that we wan't to bump the release-version for drafts on master.
