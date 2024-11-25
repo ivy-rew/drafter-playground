@@ -28,6 +28,10 @@ jobs:
             RELEASE_VERSION="${GITHUB_REF#refs/*/}"
           fi;
           echo RELEASE_VERSION=$RELEASE_VERSION >> $GITHUB_ENV
+
+          MINOR=${RELEASE_VERSION%.*}
+          MINOR=${MINOR#v}
+          echo MINOR_VERSION=$MINOR >> $GITHUB_ENV
       - uses: release-drafter/release-drafter@v6
         with:
           config-name: draft-template.yml
@@ -35,7 +39,7 @@ jobs:
           name: ${{ env.RELEASE_VERSION }}
           tag: ${{ env.RELEASE_VERSION }}
           version: ${{ env.RELEASE_VERSION }}
-          commitish: master
+          commitish: release/${{ env.MINOR_VERSION }}
           publish: ${{ inputs.publish }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
