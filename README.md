@@ -18,7 +18,7 @@ The draft-release is only visible to maintainers of the repo, but listed in the 
 
 Uses a git tag as source to trigger a final github release creation. 
 This action will automatically run if a tag is push that follows the pattern `v*.*.*`. 
-Moreover, publishing can be enforce with a manual run an passing the tag name into it. 
+Moreover, publishing can be enforced with a manual run an passing the tag name into it. 
 Nevertheless, manual publishing is more for demonstration and development purposes so not recommended for your real use cases.
 
 #### [Release Publisher](https://github.com/ivy-rew/drafter-playground/actions/workflows/draft-pub.yml) 
