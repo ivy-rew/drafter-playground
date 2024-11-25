@@ -31,6 +31,9 @@ jobs:
 
           MINOR=${RELEASE_VERSION%.*}
           MINOR=${MINOR#v}
+          if [[ "${GITHUB_REF#refs/*/}" -eq "master" ]]; then
+            MINOR="master"
+          fi
           echo MINOR_VERSION=$MINOR >> $GITHUB_ENV
       - uses: release-drafter/release-drafter@v6
         with:
