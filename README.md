@@ -69,4 +69,4 @@ Up 2 then history seems to contain too many items...
 
 ... do we just need a first commit/PR on the new release branch before tagging a first release?
 
-... some changes for v5
+... some changes for v5 .. and more changes
