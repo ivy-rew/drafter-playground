@@ -31,10 +31,11 @@ jobs:
 
           MINOR=${RELEASE_VERSION%.*}
           MINOR=${MINOR#v}
+          TARGET=release/${MINOR}
           if [[ "${GITHUB_REF#refs/*/}" -eq "master" ]]; then
-            MINOR="master"
+            TARGET="master"
           fi
-          echo MINOR_VERSION=$MINOR >> $GITHUB_ENV
+          echo RELEASE_TARGET=$TARGET >> $GITHUB_ENV
       - uses: release-drafter/release-drafter@v6
         with:
           config-name: draft-template.yml
@@ -42,7 +43,7 @@ jobs:
           name: ${{ env.RELEASE_VERSION }}
           tag: ${{ env.RELEASE_VERSION }}
           version: ${{ env.RELEASE_VERSION }}
-          commitish: release/${{ env.MINOR_VERSION }}
+          commitish: ${{ env.RELEASE_TARGET }}
           publish: ${{ inputs.publish }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
