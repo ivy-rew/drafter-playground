@@ -9,6 +9,10 @@ on:
       tag:
         type: string
         description: the tag-ref to release e.g. 'v1.0.0'
+      publish:
+        type: boolean
+        default: false
+        description: publish the drafted release as final version?
     
 
 permissions:
@@ -22,4 +26,4 @@ jobs:
       version: ${{ inputs.tag }}
       # The 'publish' input parameter is used to control whether the release should be published automatically.
       # Uncomment and set to 'false' if you want to prevent the release from being published immediately.
-      #publish: false
+      publish: ${{ inputs.publish }}
